@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 <head>
     <title><%= __('title') %></title>
@@ -201,6 +202,32 @@
         display: block;
     }
 
+    .customP {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 150px;
+        white-space: nowrap;
+        margin-bottom: 0;
+        font-size: 15px
+    }
+
+    .a-download {
+        font-size: 15px
+
+    }
+
+    .custom-details {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 540px) {
+        .custom-details {
+            display: block;
+        }
+    }
+
     @media screen and (max-width: 600px) {
         .topnav a:not(:first-child), .dropdownDiv .dropbtn {
             display: none;
@@ -222,6 +249,15 @@
         .active {
             margin-left: 0;
         }
+
+        .customP {
+            font-size: 13px;
+        }
+
+        .a-download {
+            font-size: 13px
+        }
+
     }
 
     @media screen and (max-width: 600px) {
@@ -256,19 +292,22 @@
         }
     }
 
-    .container-result {
+    #result-container {
         width: 60%;
-        display: flex;
-        flex-direction: row;
+        display: none;
+        flex-direction: column;
+        gap: 20px;
         cursor: pointer;
         /*align-items: center;*/
-        justify-content: space-between;
+        /*justify-content: center;*/
         border: 2px dashed #e8e8e8;
         background-color: #ffff;
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 48px 35px -48px #e8e8e8;
+        margin-top: 20px;
     }
+
 
     footer {
         background-color: #333;
@@ -322,7 +361,6 @@
 <!--Form-->
 <div style="display: flex;
     justify-content: center;">
-
     <form id="upload" enctype="multipart/form-data">
         <label for="file">
             <div class="icon">
@@ -338,31 +376,19 @@
             </div>
             <div class="text" style="margin-top: 20px">
                 <span><%= __('title-choose-file') %></span>
-                <input id="file" type="file" name="image" accept="image/*" required>
+                <input id="file" type="file" name="image" accept="image/*" required multiple>
             </div>
         </label>
-        <!--    <button id="btn" type="submit">Nén ảnh</button>-->
     </form>
 </div>
 
 <!--Result-->
-<div class="container-result" style="margin: 0 auto">
-    <!--    <div id="imageDetail">-->
-    <!--        <span class="fw-semibold">Name:</span>-->
-    <!--        <span class="ms-0">image.png</span>-->
-    <!--        <span class="fw-semibold ms-3">Size:</span>-->
-    <!--        <span class="ms-0" style="color: #7eb631 ">20.4KB</span>-->
-    <!--    </div>-->
 
-    <!--    <div id="result">-->
-    <!--        <span class="fw-semibold ms-3">Size (After Compression):</span>-->
-    <!--        <span class="ms-0" style="color: #7eb631">20.4KB</span>-->
-    <!--        <span class="ms-4">-->
-    <!--            <a href="/">Download</a>-->
-    <!--        </span>-->
-    <!--    </div>-->
-
+<div style="display: flex;justify-content: center;align-items: center">
+    <div id="result-container">
+    </div>
 </div>
+
 
 <!--Content-->
 <div class="container-content mt-5 w-75 d-block" style="margin: 0 auto">
@@ -428,6 +454,120 @@
 
 
 <script>
+
+    //Main function upload any file
+    document.getElementById('upload').addEventListener('change', async function (event) {
+
+        const formData = new FormData();
+        const files = document.getElementById('file').files;
+        const resultContainer = document.getElementById("result-container");
+
+        files === undefined ? resultContainer.style.display = "none" : resultContainer.style.display = "flex"
+
+        for (let i = 0; i < files.length; i++) {
+            formData.append('image', files[i]);
+        }
+
+        try {
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            const data = await response.json();
+            console.log(data)
+            const downloadLinks = data.compressedPaths.map(image => `
+                <div style="" class="custom-details">
+                    <div class="d-flex flex-wrap">
+                        <p class="customP">Name: ${image.name}</p>
+                        <p class="customP">Size(Befor): ${formatFileSize(image.originalSize)}</p>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <p class="customP">Size(After): ${formatFileSize(image.compSize)}</p>
+                        <a class="a-download" href="/download/${encodeURIComponent(image.name)}" download>Download</a>
+                    </div>
+                </div>
+            `);
+            document.getElementById('result-container').innerHTML = downloadLinks.join('');
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+
+    //Main function upload one file
+    //     const formUpload = document.getElementById("upload");
+    //     const file = document.getElementById("file").files[0];
+    //     console.log(file);
+    //
+    //     formUpload.addEventListener("change", (e) => {
+    //         const result = document.getElementById("result-container");
+    //         const file = document.getElementById("file").files[0];
+    //         file === undefined ? result.style.display = "none" : result.style.display = "flex";
+    //
+    //         console.log(file);
+    //         console.log("Change: " + result);
+    //
+    //
+    //         const sizeImage = formatFileSize(file.size);
+    //         const nameImage = file.name;
+    //
+    //         const formData = new FormData();
+    //         console.log(formData);
+    //         const imageFile = document.getElementById("file").files[0];
+    //         console.log(imageFile);
+    //         formData.append('image', imageFile);
+    //
+    //
+    //         fetch('/upload', {
+    //             method: 'POST',
+    //             body: formData
+    //         })
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error('Network response was not ok');
+    //                 }
+    //                 return response.blob();
+    //             })
+    //             .then(bold => {
+    //                 const fileSizeAfter = formatFileSize(bold.size);
+    //
+    //                 result.innerHTML = `
+    //                 <div id="imageDetail">
+    //                     <span class="fw-semibold" >Name:</span>
+    //                     <span class="ms-0" id="name-file">${nameImage}</span>
+    //                     <span class="fw-semibold ms-3">Size:</span>
+    //                     <span class="ms-0" style="color: #7eb631 " id="size-file">${sizeImage}</span>
+    //                 </div>
+    //
+    //                 <div id="result">
+    //                     <span class="fw-semibold ms-3">Size (After Compression):</span>
+    //                     <span class="ms-0" style="color: #7eb631" id="size-after">${fileSizeAfter}</span>
+    //                     <span class="ms-4" id="download">
+    // <!--                         <a href="/" id="dow">Download</a>-->
+    //                     </span>
+    //                 </div>
+    //                 `
+    //                 const downloadLink = document.createElement("a");
+    //                 downloadLink.href = URL.createObjectURL(bold);
+    //                 downloadLink.download = `compress_${file.name}`
+    //                 downloadLink.textContent = "Download"
+    //                 document.getElementById("download").appendChild(downloadLink)
+    //
+    //
+    //             })
+    //             .catch(error => console.error('Error compressing image:', error));
+    //
+    //
+    //     })
+
+    function formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' Bytes';
+        else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        else return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+
+    //Config nav
     function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {

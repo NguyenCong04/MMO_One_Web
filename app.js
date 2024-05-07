@@ -120,7 +120,7 @@ i18n.configure({
 });
 
 
-// var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 
@@ -128,7 +128,6 @@ var app = express();
 
 //Áp dụng ngôn ngữ cho trang web
 app.use(i18n.init);
-
 
 
 // view engine setup
@@ -141,40 +140,40 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 //Đọc các file json có trong folder language
 const language_dict = {};
-glob.sync('./language/*.json').forEach(function (file)  {
+glob.sync('./language/*.json').forEach(function (file) {
     let dash = file.split("\\");
-    console.log("zzz: "+dash.length)
-    console.log("zzz2: "+dash)
+    console.log("zzz: " + dash.length)
+    console.log("zzz2: " + dash)
     if (dash.length == 2) {
         let dot = dash[1].split(".");
-        console.log("kkk: "+dot)
+        console.log("kkk: " + dot)
         if (dot.length == 2) {
             let lang = dot[0];
             fs.readFile(file, function (err, data) {
                 language_dict[lang] = JSON.parse(data.toString());
             });
         }
-    }else {
+    } else {
         console.log("lkkkk")
     }
 });
 
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ mắc định sẽ hiển thị tiếng anh
-app.get('/',function (req,res) {
-    let lang  = 'en';
+app.get('/', function (req, res) {
+    let lang = 'en';
     console.log(lang);
-    i18n.setLocale(req,'en')
-    res.render('index', {lang : lang})
+    i18n.setLocale(req, 'en')
+    res.render('index', {lang: lang})
 })
 
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
 // ví dụ : https://dotsave.app/en
-app.get('/:lang',function (req,res,next) {
+app.get('/:lang', function (req, res, next) {
     // lấy ra địa chỉ truy vấn
     console.log("Not index")
     const q = req.url;
@@ -195,13 +194,9 @@ app.get('/:lang',function (req,res,next) {
         }
     }
     if (lang == undefined) lang = 'en'
-    i18n.setLocale(req,lang)
-    res.render('index', {lang : lang})
+    i18n.setLocale(req, lang)
+    res.render('index', {lang: lang})
 })
-
-
-
-
 
 
 // catch 404 and forward to error handler

@@ -65,6 +65,10 @@ router.post('/upload', upload.array("image", 10), async function (req, res, next
         }
         console.log(compressedPaths);
         res.json({compressedPaths})
+        for (const file of req.files) {
+            fs.unlinkSync(file.path);
+            console.log(file.path)
+        }
     } catch (err) {
         console.log(err);
     }

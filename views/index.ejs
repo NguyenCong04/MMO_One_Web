@@ -25,7 +25,7 @@
 
     <!--  quy định icon hiển thị trên tab của trình duyệt -->
     <!--    <link rel="shortcut icon" href="https://imagecompression.app/assets/img/favicon.png"/>-->
-    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 
     <!--  báo hiệu google không dịch nội dung website  -->
     <meta name="google" content="notranslate"/>
@@ -65,10 +65,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
-
 
 <style>
     * {
@@ -143,7 +142,7 @@
         font-size: 17px;
     }
 
-    .active {
+    .activeNav {
         color: white;
         margin-left: 60px;
 
@@ -208,7 +207,7 @@
         width: 150px;
         white-space: nowrap;
         margin-bottom: 0;
-        font-size: 15px
+        font-size: 14px
     }
 
     .a-download {
@@ -240,13 +239,14 @@
 
         .topnav {
             display: block;
+            line-height: 40px;
         }
 
         .dropdownDiv {
             margin-right: 0;
         }
 
-        .active {
+        .activeNav {
             margin-left: 0;
         }
 
@@ -292,14 +292,15 @@
         }
     }
 
-    #result-container {
+    #result-container-1 {
         width: 60%;
+        min-height: 80px;
         display: none;
         flex-direction: column;
         gap: 20px;
         cursor: pointer;
         /*align-items: center;*/
-        /*justify-content: center;*/
+        justify-content: center;
         border: 2px dashed #e8e8e8;
         background-color: #ffff;
         padding: 1.5rem;
@@ -308,6 +309,11 @@
         margin-top: 20px;
     }
 
+    #result-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
     footer {
         background-color: #333;
@@ -331,14 +337,232 @@
         color: #fff;
         text-decoration: none;
     }
+
+    .loader {
+        position: relative;
+        width: 2.5em;
+        height: 2.5em;
+        transform: rotate(165deg);
+    }
+
+    .loader:before, .loader:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        border-radius: 0.25em;
+        transform: translate(-50%, -50%);
+    }
+
+    .loader:before {
+        animation: before8 2s infinite;
+    }
+
+    .loader:after {
+        animation: after6 2s infinite;
+    }
+
+    @keyframes before8 {
+        0% {
+            width: 0.5em;
+            box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+
+        35% {
+            width: 2.5em;
+            box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+        }
+
+        70% {
+            width: 0.5em;
+            box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+
+        100% {
+            box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+    }
+
+    @keyframes after6 {
+        0% {
+            height: 0.5em;
+            box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+        }
+
+        35% {
+            height: 2.5em;
+            box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+        }
+
+        70% {
+            height: 0.5em;
+            box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+        }
+
+        100% {
+            box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+        }
+    }
+
+    .loader {
+        position: absolute;
+        /*top: calc(50% - 1.25em);*/
+        left: calc(50% - 1.25em);
+    }
+
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: background-color 0.4s;
+        margin-top: 20px;
+        border-radius: 10px;
+        position: relative; /* Đặt vị trí tương đối để căn chỉnh biểu tượng */
+    }
+
+    .active, .accordion:hover {
+        background-color: #ccc;
+    }
+
+    .panel {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: white;
+    }
+
+    .panel p {
+        margin-block-start: 1.3em;
+        text-align: justify;
+    }
+
+    /* CSS cho biểu tượng */
+    .accordion i {
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        transform: translateY(-50%);
+        transition: transform 0.4s; /* Hiệu ứng khi xoay biểu tượng */
+    }
+
+    /* Xoay biểu tượng khi accordion mở rộng */
+    .accordion.active i {
+        transform: translateY(-50%) rotate(-180deg);
+    }
+
+    .mlr {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
 </style>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "CompressImage là gì và tại sao nén ảnh lại quan trọng?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "CompressImage là một dịch vụ trực tuyến hoặc một công cụ phần mềm giúp nén ảnh để giảm dung lượng của chúng mà vẫn giữ được chất lượng hình ảnh. Quá trình nén ảnh quan trọng vì nó giúp tăng tốc độ tải trang web, giảm băng thông mạng, và tăng trải nghiệm người dùng bằng cách làm cho trang web tải nhanh hơn và hiệu quả hơn."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Làm thế nào để tôi có thể nén ảnh từ CompressImage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "Mở trình duyệt web và nhập địa chỉ trang web của CompressImage.id.vn vào thanh tìm kiếm.Nhấp vào nút Tải ảnh lên hoặc kéo và thả tập tin ảnh của bạn từ máy tính vào trang web.Sau khi tải ảnh lên, bạn sẽ thấy các tùy chọn cấu hình nén. Chọn định dạng ảnh (JPEG, PNG, GIF, vv.) và điều chỉnh mức độ nén nếu cần thiết.CompressImage sẽ xử lý ảnh của bạn và tạo ra phiên bản đã nén với dung lượng thấp nhưng vẫn giữ được chất lượng.Sau khi quá trình nén hoàn tất, bạn sẽ nhận được tùy chọn để tải về ảnh đã nén. Nhấp vào nút Tải về để lưu tập tin nén xuống máy tính của bạn.Mở ảnh đã nén để kiểm tra chất lượng và dung lượng. Đảm bảo rằng ảnh vẫn giữ được chất lượng mong muốn trong khi dung lượng đã được giảm đi"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Làm thế nào để nén ảnh một cách hiệu quả với CompressImage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "Để nén ảnh một cách hiệu quả với CompressImage, bạn cần chọn các cài đặt nén phù hợp, bao gồm chọn định dạng nén (JPEG, PNG, GIF, etc.), mức độ nén (đặc trưng bằng tỉ lệ phần trăm hoặc cấu hình cụ thể), và kiểm soát các yếu tố khác như kích thước ảnh."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "CompressImage có cung cấp các công cụ nén ảnh nào?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "CompressImage cung cấp một loạt các công cụ nén ảnh như TinyPNG, JPEG Optimizer, ImageOptim, và nhiều công cụ khác nữa, mỗi công cụ có những ưu điểm và hạn chế riêng"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Tôi có thể nén ảnh trực tuyến bằng CompressImage không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "Được, CompressImage thường cung cấp dịch vụ nén ảnh trực tuyến thông qua trang web của họ, cho phép bạn tải lên và nén ảnh một cách nhanh chóng và thuận tiện từ bất kỳ thiết bị nào có kết nối internet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "CompressImage có thể giúp giảm dung lượng ảnh mà không làm mất chất lượng không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "Có, CompressImage sử dụng các thuật toán nén tiên tiến để giảm dung lượng của ảnh mà vẫn giữ được chất lượng hình ảnh gốc. Tuy nhiên, việc giảm dung lượng đôi khi có thể ảnh hưởng đến chất lượng hình ảnh, đặc biệt là khi áp dụng mức độ nén cao."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Làm thế nào để chọn cấu hình nén phù hợp khi sử dụng CompressImage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "Khi sử dụng CompressImage, bạn cần xem xét nhu cầu của mình và chọn cấu hình nén phù hợp. Điều này bao gồm việc xác định mức độ nén, định dạng đầu ra, và các tùy chọn khác như giữ nguyên thông số kích thước hay giảm kích thước ảnh."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "CompressImage hỗ trợ các định dạng ảnh nào?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "CompressImage thường hỗ trợ nén các định dạng ảnh phổ biến như JPEG, PNG, GIF, SVG, và nhiều định dạng khác nữa."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Tôi có thể sử dụng CompressImage miễn phí không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "CompressImage thường cung cấp phiên bản miễn phí với một số hạn chế về dung lượng nén hoặc chất lượng hình ảnh. Bạn cũng có thể nâng cấp lên các gói dịch vụ trả phí để có thêm tính năng và sự linh hoạt hơn."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Làm thế nào để đảm bảo rằng ảnh của tôi vẫn đảm bảo chất lượng sau khi được nén bằng CompressImage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "description": "Để đảm bảo rằng ảnh của bạn vẫn giữ chất lượng sau khi được nén bằng CompressImage, bạn cần kiểm tra kết quả nén và điều chỉnh cài đặt nén nếu cần thiết. Bạn cũng có thể so sánh trực quan giữa ảnh gốc và ảnh đã nén để đảm bảo rằng không có sự mất mát đáng kể về chất lượng."
+                }
+            }
+        ]
+    }
+</script>
 
 
 <body>
 
 <!--Nav-->
 <div class="topnav" id="myTopnav">
-    <a href="/" class="active fw-semibold fs-4 ">JumbleCS</a>
+    <a href="/" class="activeNav fw-semibold fs-4 ">JumbleCS</a>
     <div class="dropdownDiv">
         <button class="dropbtn fw-semibold h-100">LANGUAGE
             <i class="fa fa-caret-down"></i>
@@ -346,6 +570,14 @@
         <div class="dropdown-content">
             <a href="/en">English</a>
             <a href="/vi">Vietnamese</a>
+            <a href="/id">Bahasa Indonesia</a>
+            <a href="/my">Bahasa Melayu</a>
+            <a href="/ja">日本語 </a>
+            <a href="/ko">한국어 </a>
+            <a href="/pt">Português</a>
+            <a href="/iw">भारत गणराज्य </a>
+            <a href="/es">Español</a>
+            <a href="/fr">Français</a>
         </div>
     </div>
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -383,10 +615,12 @@
 </div>
 
 <!--Result-->
-
 <div style="display: flex;justify-content: center;align-items: center">
-    <div id="result-container">
+    <div id="result-container-1">
+        <div id="result-container"></div>
+        <div id="load" class="loader"></div>
     </div>
+
 </div>
 
 
@@ -423,7 +657,7 @@
         </ul>
     </div>
 
-    <div class="mt-3 mb-5">
+    <div class="mt-3 mb-3">
         <h5 class="fw-semibold"><%= __('content-body-title5') %></h5>
         <ul>
             <li><%= __('content-description5') %></li>
@@ -432,6 +666,182 @@
     </div>
 
 </div>
+
+<!--FAQs-->
+<div class="container-faq w-75 d-block m-auto mb-5">
+    <h5 class="fw-semibold" style="text-align: justify"><%= __('title-welcome-faqs') %></h5>
+
+    <!-- FAQs 1  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs1') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs1') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs 2  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs2') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs2.1') %></p>
+                    </li>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs2.2') %></p>
+                    </li>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs2.3') %></p>
+                    </li>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs2.4') %></p>
+                    </li>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs2.5') %></p>
+                    </li>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs2.6') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FAQs 3  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs3') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs3') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 4  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs4') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs4') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 5  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs5') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs5') %>></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 6  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs6') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs6') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 7  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs7') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs7') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 8  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs8') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs8') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 9  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs9') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs9') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs 10  -->
+    <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button itemprop="name" class="accordion"><%= __('name-faqs10') %><i
+                        class="fas fa-chevron-down"></i>
+            </button>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                <ul>
+                    <li>
+                        <p itemprop="description"><%= __('text-faqs10') %></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 <!--Footer-->
 <footer>
@@ -460,7 +870,11 @@
 
         const formData = new FormData();
         const files = document.getElementById('file').files;
-        const resultContainer = document.getElementById("result-container");
+        const resultContainer = document.getElementById("result-container-1");
+        const load = document.getElementById("load");
+        const result = document.getElementById("result-container");
+        load.style.display = 'block'
+        result.style.opacity = 0.5
 
         files === undefined ? resultContainer.style.display = "none" : resultContainer.style.display = "flex"
 
@@ -478,11 +892,11 @@
             const downloadLinks = data.compressedPaths.map(image => `
                 <div style="" class="custom-details">
                     <div class="d-flex flex-wrap">
-                        <p class="customP">Name: ${image.name}</p>
-                        <p class="customP">Size(Befor): ${formatFileSize(image.originalSize)}</p>
+                        <p class="customP"><b>Name:</b> ${image.name}</p>
+                        <p class="customP" style="color: red"><b style="color: black">Size(Befor): </b>${formatFileSize(image.originalSize)}</p>
                     </div>
                     <div class="d-flex flex-wrap">
-                        <p class="customP">Size(After): ${formatFileSize(image.compSize)}</p>
+                        <p class="customP" style="color: #7eb631"><b style="color: black">Size(After): </b>${formatFileSize(image.compSize)}</p>
                         <a class="a-download" href="/download/${encodeURIComponent(image.name)}" download>Download</a>
                     </div>
                 </div>
@@ -490,6 +904,9 @@
             document.getElementById('result-container').innerHTML = downloadLinks.join('');
         } catch (error) {
             console.error('Error:', error);
+        } finally {
+            load.style.display = 'none'
+            result.style.opacity = 1
         }
     });
 
@@ -576,6 +993,23 @@
             x.className = "topnav";
         }
     }
+
+    //Sử lý UI FQAs
+    const acc = document.getElementsByClassName("accordion");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
 </script>
 </body>
 </html>

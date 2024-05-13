@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fs = require("fs");
+const favicon = require("serve-favicon");
 
 //Config đa ngôn ngữ cho trang web
 const i18n = require("i18n");
@@ -139,6 +140,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
+// app.use(favicon(path.join(__dirname, 'public', 'images', 'image.png')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

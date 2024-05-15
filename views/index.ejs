@@ -890,7 +890,7 @@
             })
             const data = await response.json();
             console.log(data)
-            const downloadLinks = data.compressedPaths.map(image => `
+            const downloadLinks = data.compressedImages.map(image => `
                 <div style="" class="custom-details">
                     <div class="d-flex flex-wrap">
                         <p class="customP"><b>Name:</b> ${image.name}</p>
@@ -898,7 +898,7 @@
                     </div>
                     <div class="d-flex flex-wrap">
                         <p class="customP" style="color: #7eb631"><b style="color: black">Size(After): </b>${formatFileSize(image.compSize)}</p>
-                        <a class="a-download" href="/download/${encodeURIComponent(image.name)}" download>Download</a>
+                        <a class="a-download" href="data:image/${image.format};base64,${image.buffer}" download="compress_${image.name}">Download</a>
                     </div>
                 </div>
             `);

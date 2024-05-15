@@ -38,45 +38,76 @@ tiny.key = "RwWfDfrZ44KZn7GDSmMLpvlqGMpSJD2L";
 
 // Post any File
 router.post('/upload', upload.array("image", 10), async function (req, res, next) {
+
     try {
         if (!req.files || req.files.length === 0) {
             return res.status(400).send('No files were uploaded.');
         }
 
-        const compressedPaths = [];
+        const compressedImages = [];
 
-        // Demo
         for (const file of req.files) {
-            const source = tiny.fromFile(file.path);
-            const compressedPath = path.join(__dirname, '../public/images', file.filename);
+            const source = tiny.fromBuffer(file.buffer);
+            const compressedBuffer = await source.toBuffer();
 
-            // Giảm dung lượng của ảnh
-            await source.toFile(compressedPath);
+            const ext = file.mimetype.split('/')[1];
 
             // Tính toán dung lượng của ảnh gốc và sau khi nén
             const originalSize = file.size;
-            const compSize = fs.statSync(compressedPath).size;
+            const compSize = compressedBuffer.length;
 
-            compressedPaths.push({
-                name: file.filename,
+            compressedImages.push({
+                name: file.originalname,
                 originalSize,
-                compSize
+                compSize,
+                buffer: compressedBuffer,
+                format: ext
             });
+
         }
-        console.log(compressedPaths);
-        res.json({compressedPaths})
-        for (const file of req.files) {
-            fs.unlinkSync(file.path);
-            console.log(file.path)
-        }
+
+        console.log(compressedImages);
+
+        // Trả về các ảnh đã nén
+        res.json({
+            compressedImages: compressedImages.map(img => ({
+                name: img.name,
+                originalSize: img.originalSize,
+                compSize: img.compSize,
+                buffer: img.buffer.toString('base64')  // Encode buffer to base64
+            }))
+        });
+
     } catch (err) {
         console.log(err);
+        res.status(500).send('An error occurred.');
     }
+
+
 })
+
 router.get('/download/:filename', function (req, res) {
-    const filename = req.params.filename;
-    const file = path.join(__dirname, '../public/images', filename);
-    res.download(file);
+    try {
+        const {filename} = req.params;
+        const {base64Buffer} = req.query;  // Get the base64 buffer from query
+
+        if (!base64Buffer) {
+            return res.status(400).send('No image data provided.');
+        }
+
+        const buffer = Buffer.from(base64Buffer, 'base64');
+
+        res.set({
+            'Content-Type': 'image/jpeg',
+            'Content-Disposition': `attachment; filename="${filename}"`
+        });
+
+        res.send(buffer);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('An error occurred.');
+    }
+
 });
 
 module.exports = router;

@@ -345,7 +345,6 @@ footer {
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    padding: 18px;
     width: 100%;
     border: none;
     text-align: left;
@@ -355,6 +354,7 @@ footer {
     margin-top: 20px;
     border-radius: 10px;
     position: relative; /* Đặt vị trí tương đối để căn chỉnh biểu tượng */
+    padding: 18px 55px 18px 18px;
 }
 
 .active, .accordion:hover {

@@ -148,25 +148,19 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 //Đọc các file json có trong folder language
-const language_dict = {};
-glob.sync('./language/*.json').forEach(function (file) {
-    let dash = file.split("\\");
-    console.log("zzz: " + dash.length)
-    console.log("zzz2: " + dash)
-    if (dash.length == 2) {
-        let dot = dash[1].split(".");
-        console.log("kkk: " + dot)
+var language_dict = {};
+glob.sync('../language/*.json').forEach(function (file) {
+    let dash = file.split("/");
+    if (dash.length == 3) {
+        let dot = dash[2].split(".");
         if (dot.length == 2) {
             let lang = dot[0];
             fs.readFile(file, function (err, data) {
                 language_dict[lang] = JSON.parse(data.toString());
             });
         }
-    } else {
-        console.log("lkkkk")
     }
 });
-
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ mắc định sẽ hiển thị tiếng anh
 app.get('/', function (req, res) {
     let lang = 'en';

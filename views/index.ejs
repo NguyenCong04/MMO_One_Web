@@ -171,13 +171,13 @@
             <a href="/vi">Vietnamese</a>
             <a href="/id">Bahasa Indonesia</a>
             <a href="/my">Bahasa Melayu</a>
-            <a href="/ja">日本語 </a>
-            <a href="/ko">한국어 </a>
-            <a href="/pt">Português</a>
-            <a href="/iw">भारत गणराज्य </a>
-            <a href="/es">Español</a>
-            <a href="/fr">Français</a>
-            <a href="/ro">Română</a>
+            <a href="/ja">日本語 </a><!--tiếng Nhat ban-->
+            <a href="/ko">한국어 </a><!--tiếng Han quoc-->
+            <a href="/pt">Português</a><!--tiếng bo dao nha-->
+            <a href="/iw">भारत गणराज्य </a><!--tiếng an do-->
+            <a href="/es">Español</a><!--tiếng tay ba nha-->
+            <a href="/fr">Français</a><!--tiếng Phap-->
+            <a href="/ro">Română</a><!--tiếng Rumani-->
         </div>
     </div>
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -189,6 +189,31 @@
         <p style="text-align: justify;margin-left: 10px;margin-right: 10px"><%= __('content-body-top') %></p>
     </div>
 </div>
+
+<!--Error-->
+<div class='content' id="error-message" style="display: none">
+    <section>
+        <div class="container error-container">
+            <div class="" style="width: 60%">
+
+                <div class="col-sm-12">
+                    <div class="alert fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show"
+                         role="alert" data-brk-library="component__alert">
+                        <button type="button" class="close font__size-18" data-dismiss="alert">
+									<span aria-hidden="true">
+										<i class="fa fa-times danger "></i>
+									</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <i class="start-icon far fa-times-circle faa-pulse animated"></i>
+                        <strong class="font__weight-semibold"><%= __('mes_error_1') %></strong><%= __('mes_error_2') %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 
 <!--Form-->
 <div style="display: flex;

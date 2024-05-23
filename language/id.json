@@ -49,5 +49,7 @@
 	"text-faqs9": "Kompres Gambar biasanya menyediakan versi gratis dengan beberapa batasan pada ukuran kompresi atau kualitas gambar. Anda juga dapat meningkatkan ke paket layanan berbayar untuk fitur tambahan dan fleksibilitas.",
 	"name-faqs10": "Bagaimana cara memastikan bahwa gambar saya tetap berkualitas setelah dikompresi dengan Kompres Gambar?",
 	"text-faqs10": "Untuk memastikan bahwa gambar Anda tetap berkualitas setelah dikompresi dengan Kompres Gambar, Anda perlu memeriksa hasil kompresi dan menyesuaikan pengaturan kompresi jika diperlukan. Anda juga dapat membandingkan visual antara gambar asli dan gambar yang sudah dikompresi untuk memastikan tidak ada penurunan kualitas yang signifikan.",
-	"twitter_card_sumary": "twitter_card_sumary"
+	"twitter_card_sumary": "twitter_card_sumary",
+	"mes_error_1": "Oh snap!",
+	"mes_error_2": "Ukuran file melebihi batas 3MB dan Maksimum 3 foto"
 }

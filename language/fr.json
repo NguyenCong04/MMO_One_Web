@@ -48,5 +48,7 @@
   "name-faqs9": "Puis-je utiliser CompressImage gratuitement ?",
   "text-faqs9": "CompressImage propose généralement une version gratuite avec certaines limitations en termes de taille de compression ou de qualité d'image. Vous pouvez également passer à des plans de service payants pour obtenir des fonctionnalités supplémentaires et plus de flexibilité.",
   "name-faqs10": "Comment puis-je m'assurer que mes images conservent leur qualité après avoir été compressées avec CompressImage ?",
-  "text-faqs10": "Pour vous assurer que vos images conservent leur qualité après avoir été compressées avec CompressImage, vous devez vérifier les résultats de la compression et ajuster les paramètres de compression si nécessaire. Vous pouvez également comparer visuellement l'image originale et l'image compressée pour vous assurer qu'il n'y a pas de perte de qualité significative."
+  "text-faqs10": "Pour vous assurer que vos images conservent leur qualité après avoir été compressées avec CompressImage, vous devez vérifier les résultats de la compression et ajuster les paramètres de compression si nécessaire. Vous pouvez également comparer visuellement l'image originale et l'image compressée pour vous assurer qu'il n'y a pas de perte de qualité significative.",
+  "mes_error_1": "Oh zut !",
+  "mes_error_2": "La taille du fichier dépasse la limite de 3 Mo et Maximum 3 photos"
 }

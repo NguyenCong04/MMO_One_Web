@@ -48,5 +48,7 @@
   "name-faqs9": "Pot folosi CompressImage gratuit?",
   "text-faqs9": "CompressImage oferă în mod obișnuit o versiune gratuită cu anumite limitări în ceea ce privește dimensiunea de comprimare sau calitatea imaginii. Poți de asemenea să treci la planuri de servicii plătite pentru a obține funcționalități suplimentare și mai multă flexibilitate.",
   "name-faqs10": "Cum pot să mă asigur că imaginile mele își păstrează calitatea după ce sunt comprimate cu CompressImage?",
-  "text-faqs10": "Pentru a te asigura că imaginile tale își păstrează calitatea după ce sunt comprimate cu CompressImage, trebuie să verifici rezultatele compresiei și să ajustezi setările de compresie dacă este necesar. Poți de asemenea să compari vizual imaginea originală cu imaginea comprimată pentru a te asigura că nu există pierderi semnificative de calitate."
+  "text-faqs10": "Pentru a te asigura că imaginile tale își păstrează calitatea după ce sunt comprimate cu CompressImage, trebuie să verifici rezultatele compresiei și să ajustezi setările de compresie dacă este necesar. Poți de asemenea să compari vizual imaginea originală cu imaginea comprimată pentru a te asigura că nu există pierderi semnificative de calitate.",
+  "mes_error_1": "O snap!",
+  "mes_error_2": "Dimensiunea fișierului depășește limita de 3MB și maximum 3 fotografii"
 }

@@ -1,5 +1,3 @@
-// noinspection JSCheckFunctionSignatures
-
 var express = require('express');
 const path = require("path");
 const fs = require("fs");
@@ -9,7 +7,7 @@ const upload = require("../config/upload");
 // tiny.key = "RwWfDfrZ44KZn7GDSmMLpvlqGMpSJD2L";
 const sharp = require("sharp")
 const multer = require("multer");
-
+const { Readable } = require('stream');
 /* GET home page. */
 // router.get('/', function (req, res, next) {
 //     res.render('index', {title: 'Express'});
@@ -91,48 +89,83 @@ const multer = require("multer");
 // })
 
 //Compress image with Library sharp
-router.post('/upload', upload.array('image', 3), async (req, res) => {
+// router.post('/upload', upload.array('image', 3), async (req, res) => {
+//     try {
+//         if (!req.files || req.files.length === 0) {
+//             return res.status(400).send('No files were uploaded.');
+//         }
+//
+//         const compressedImagesPromises = req.files.map(async (file) => {
+//             let compressedBuffer;
+//             const fileType = file.mimetype.split('/')[1];
+//
+//             if (fileType === 'jpeg' || fileType === 'jpg') {
+//                 compressedBuffer = await sharp(file.buffer)
+//                     .jpeg({quality: 70}) // Điều chỉnh mức độ nén cho JPEG
+//                     .toBuffer();
+//             } else if (fileType === 'png') {
+//                 compressedBuffer = await sharp(file.buffer)
+//                     .png({quality: 70, compressionLevel: 9}) // Điều chỉnh mức độ nén cho PNG
+//                     .toBuffer();
+//             } else if (fileType === 'gif') {
+//                 return {
+//                     name: file.originalname,
+//                     originalSize: file.size,
+//                     compSize: file.size, // Kích thước sau khi nén giống với kích thước gốc vì không nén
+//                     buffer: file.buffer,
+//                     format: fileType
+//                 };
+//             } else {
+//                 throw new Error('Unsupported file type');
+//             }
+//
+//             return {
+//                 name: file.originalname,
+//                 originalSize: file.size,
+//                 compSize: compressedBuffer.length,
+//                 buffer: compressedBuffer,
+//                 format: fileType
+//             };
+//         });
+//
+//         const compressedImages = await Promise.all(compressedImagesPromises);
+//
+//         console.log(compressedImages);
+//
+//         res.json({
+//             compressedImages: compressedImages.map(img => ({
+//                 name: img.name,
+//                 originalSize: img.originalSize,
+//                 compSize: img.compSize,
+//                 buffer: img.buffer.toString('base64'), // Encode buffer to base64
+//                 format: img.format
+//             }))
+//         });
+//
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send('An error occurred.');
+//     }
+// });
+
+//Demo 1
+router.post('/upload', upload.array('image', 1), async (req, res) => {
     try {
         if (!req.files || req.files.length === 0) {
             return res.status(400).send('No files were uploaded.');
         }
 
-        const compressedImagesPromises = req.files.map(async (file) => {
-            let compressedBuffer;
+        const compressedImagesPromises = req.files.map(file => {
             const fileType = file.mimetype.split('/')[1];
 
-            if (fileType === 'jpeg' || fileType === 'jpg') {
-                compressedBuffer = await sharp(file.buffer)
-                    .jpeg({quality: 70}) // Điều chỉnh mức độ nén cho JPEG
-                    .toBuffer();
-            } else if (fileType === 'png') {
-                compressedBuffer = await sharp(file.buffer)
-                    .png({quality: 70, compressionLevel: 9}) // Điều chỉnh mức độ nén cho PNG
-                    .toBuffer();
-            } else if (fileType === 'gif') {
-                return {
-                    name: file.originalname,
-                    originalSize: file.size,
-                    compSize: file.size, // Kích thước sau khi nén giống với kích thước gốc vì không nén
-                    buffer: file.buffer,
-                    format: fileType
-                };
+            if (fileType === 'jpeg' || fileType === 'jpg' || fileType === 'png' || fileType === 'gif') {
+                return compressImage(file, fileType);
             } else {
-                throw new Error('Unsupported file type');
+                return Promise.reject(new Error('Unsupported file type'));
             }
-
-            return {
-                name: file.originalname,
-                originalSize: file.size,
-                compSize: compressedBuffer.length,
-                buffer: compressedBuffer,
-                format: fileType
-            };
         });
 
         const compressedImages = await Promise.all(compressedImagesPromises);
-
-        console.log(compressedImages);
 
         res.json({
             compressedImages: compressedImages.map(img => ({
@@ -149,6 +182,44 @@ router.post('/upload', upload.array('image', 3), async (req, res) => {
         res.status(500).send('An error occurred.');
     }
 });
+
+async function compressImage(file, fileType) {
+    let transformer;
+    if (fileType === 'jpeg' || fileType === 'jpg') {
+        transformer = sharp().jpeg({ quality: 70 });
+    } else if (fileType === 'png') {
+        transformer = sharp().png({ quality: 70, compressionLevel: 9 });
+    } else if (fileType === 'gif') {
+        return {
+            name: file.originalname,
+            originalSize: file.size,
+            compSize: file.size, // Kích thước sau khi nén giống với kích thước gốc vì không nén
+            buffer: file.buffer,
+            format: fileType
+        };
+    }
+
+    const compressedBuffer = await streamToBuffer(Readable.from(file.buffer).pipe(transformer));
+
+    return {
+        name: file.originalname,
+        originalSize: file.size,
+        compSize: compressedBuffer.length,
+        buffer: compressedBuffer,
+        format: fileType
+    };
+}
+
+function streamToBuffer(stream) {
+    return new Promise((resolve, reject) => {
+        const chunks = [];
+        stream.on('data', chunk => chunks.push(chunk));
+        stream.on('end', () => resolve(Buffer.concat(chunks)));
+        stream.on('error', reject);
+    });
+}
+
+
 
 // Middleware xử lý lỗi
 router.use((err, req, res, next) => {

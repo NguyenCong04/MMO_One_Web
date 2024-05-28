@@ -51,6 +51,7 @@ document.getElementById('upload').addEventListener('change', async function (eve
     const resultContainer = document.getElementById("result-container-1");
     const loading = document.getElementById("load");
     loading.style.display = "block";
+    resultContainer.style.opacity = 0.5
     console.log(files.length)
     const maxFileSize = 3 * 1024 * 1024; // 3MB
     const errorMessage = document.getElementById('error-message');
@@ -61,7 +62,7 @@ document.getElementById('upload').addEventListener('change', async function (eve
 
     if (files) {
         for (let i = 0; i < files.length; i++) {
-            if (files[i].size > maxFileSize || files.length > 3) {
+            if (files[i].size > maxFileSize || files.length > 1) {
                 errorMessage.style.display = "block";
                 setTimeout(function () {
                     errorMessage.style.display = "none";
@@ -115,6 +116,7 @@ document.getElementById('upload').addEventListener('change', async function (eve
         console.error('Error:', error);
     } finally {
         loading.style.display = "none";
+        resultContainer.style.opacity = 1
     }
 });
 

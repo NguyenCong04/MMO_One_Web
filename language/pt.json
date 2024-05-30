@@ -50,5 +50,5 @@
   "name-faqs10": "Como garantir que minhas imagens mantenham a qualidade após serem comprimidas com o CompressImage?",
   "text-faqs10": "Para garantir que suas imagens mantenham a qualidade após serem comprimidas com o CompressImage, você precisa verificar os resultados da compressão e ajustar as configurações de compressão, se necessário. Você também pode comparar visualmente a imagem original e a imagem comprimida para garantir que não haja perda significativa de qualidade.",
   "mes_error_1": "Ah, caramba!",
-  "mes_error_2": "O tamanho do arquivo excede o limite de 3MB e o máximo de 1 fotos"
+  "mes_error_2": "O tamanho do arquivo excede o limite de 1MB e o máximo de 1 fotos"
 }

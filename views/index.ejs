@@ -4,7 +4,7 @@
     <title><%= __('title') %></title>
     <meta name="description" content="<%= __('description') %>">
     <meta itemprop="image" content="">
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow"/>
 
     <!--Thẻ meta quy dịnh nội dung hiển thị preview ở mạng xã hôi twitter-->
     <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
@@ -32,39 +32,28 @@
     <!--  liệt kê các phiên bản ngôn ngữ khác mà website hỗ trợ -->
     <link rel="alternate" hreflang="x-default" href="https://imagecompression.me/"/>
     <link rel="alternate" hreflang="en" href="https://imagecompression.me/"/>
-    <link rel="alternate" hreflang="en-in" href="https://imagecompression.me/in">
     <link rel="alternate" hreflang="vi" href="https://imagecompression.me/vn"/>
-    <link rel="alternate" hreflang="tr" href="https://imagecompression.me/tr"/>
-    <link rel="alternate" hreflang="id-ID" href="https://imagecompression.me/ID"/>
-    <link rel="alternate" hreflang="fr" href="https://imagecompression.me/fr"/>
-    <link rel="alternate" hreflang="pt" href="https://imagecompression.me/pt"/>
-    <link rel="alternate" hreflang="ru" href="https://imagecompression.me/ru"/>
-    <link rel="alternate" hreflang="es" href="https://imagecompression.me/es"/>
-    <link rel="alternate" hreflang="ms" href="https://imagecompression.me/ms"/>
-    <link rel="alternate" hreflang="ko" href="https://imagecompression.me/ko"/>
+    <link rel="alternate" hreflang="id" href="https://imagecompression.me/id"/>
+    <link rel="alternate" hreflang="my" href="https://imagecompression.me/my"/>
     <link rel="alternate" hreflang="ja" href="https://imagecompression.me/ja"/>
-    <link rel="alternate" hreflang="jv" href="https://imagecompression.me/jv"/>
-    <link rel="alternate" hreflang="cs" href="https://imagecompression.me/cs"/>
-    <link rel="alternate" hreflang="de" href="https://imagecompression.me/de"/>
-    <link rel="alternate" hreflang="it" href="https://imagecompression.me/it"/>
-    <link rel="alternate" hreflang="pl" href="https://imagecompression.me/pl"/>
-    <link rel="alternate" hreflang="hu" href="https://imagecompression.me/hu"/>
-    <link rel="alternate" hreflang="nl" href="https://imagecompression.me/nl"/>
+    <link rel="alternate" hreflang="ko" href="https://imagecompression.me/ko"/>
+    <link rel="alternate" hreflang="pt" href="https://imagecompression.me/pt"/>
+    <link rel="alternate" hreflang="iw" href="https://imagecompression.me/iw"/>
+    <link rel="alternate" hreflang="es" href="https://imagecompression.me/es"/>
+    <link rel="alternate" hreflang="fr" href="https://imagecompression.me/fr"/>
     <link rel="alternate" hreflang="ro" href="https://imagecompression.me/ro"/>
-    <link rel="alternate" hreflang="el" href="https://imagecompression.me/el"/>
-
     <!--END Config    -->
+
+    <!--  google-site-verification  -->
+    <meta name="google-site-verification" content="45tzeD5vb8UThHDKRNQnXDAd-wVFqmAzupDCsS_TFvQ"/>
 
     <!-- nội dung gốc là trang đang được hiển thị  -->
     <link rel="canonical" href="https://imagecompression.me/"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web MMO Default</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel='stylesheet' href='/stylesheets/main.css'/>
     <script type="application/ld+json">
         {
@@ -156,42 +145,82 @@
         }
     </script>
 
+
 </head>
 <body>
+<header class="header">
+    <nav class="nav-header container-header-nav">
+        <div class="nav__data">
+            <a href="/" class="nav__logo">
+                Compress Image
+            </a>
 
-<!--Nav-->
-<div class="topnav" id="myTopnav">
-    <a href="/" class="activeNav fw-semibold fs-4 ">JumbleCS</a>
-    <div class="dropdownDiv">
-        <button class="dropbtn fw-semibold h-100">LANGUAGE
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="/en">English</a>
-            <a href="/vi">Vietnamese</a>
-            <a href="/id">Bahasa Indonesia</a>
-            <a href="/my">Bahasa Melayu</a>
-            <a href="/ja">日本語 </a><!--tiếng Nhat ban-->
-            <a href="/ko">한국어 </a><!--tiếng Han quoc-->
-            <a href="/pt">Português</a><!--tiếng bo dao nha-->
-            <a href="/iw">भारत गणराज्य </a><!--tiếng an do-->
-            <a href="/es">Español</a><!--tiếng tay ba nha-->
-            <a href="/fr">Français</a><!--tiếng Phap-->
-            <a href="/ro">Română</a><!--tiếng Rumani-->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line nav__burger"></i>
+                <i class="ri-close-line nav__close"></i>
+            </div>
         </div>
-    </div>
-    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
 
-<div class="justify-content-center mt-5 d-flex">
+        <!--=============== NAV MENU ===============-->
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <!--=============== DROPDOWN 1 ===============-->
+                <li class="dropdown__item">
+                    <div class="nav__link">
+                        Language <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                    </div>
+
+                    <ul class="dropdown__menu">
+                        <li>
+                            <a href="/en" class="dropdown__link"> <i></i> English </a>
+                        </li>
+
+                        <li>
+                            <a href="/vi" class="dropdown__link"> <i></i> Vietnamese </a>
+                        </li>
+                        <li>
+                            <a href="/id" class="dropdown__link"> <i></i> Bahasa Indonesia </a>
+                        </li>
+                        <li>
+                            <a href="/my" class="dropdown__link"> <i></i>Bahasa Melayu</a>
+                        </li>
+                        <li>
+                            <a href="/ja" class="dropdown__link"> <i></i> 日本語 </a>
+                        </li>
+                        <li>
+                            <a href="/ko" class="dropdown__link"> <i></i> 한국어 </a>
+                        </li>
+                        <li>
+                            <a href="/pt" class="dropdown__link"> <i></i> Português </a>
+                        </li>
+                        <li>
+                            <a href="/iw" class="dropdown__link"> <i></i> भारत गणराज्य </a>
+                        </li>
+                        <li>
+                            <a href="/es" class="dropdown__link"> <i></i> Español </a>
+                        </li>
+                        <li>
+                            <a href="/fr" class="dropdown__link"> <i></i> Français </a>
+                        </li>
+                        <li>
+                            <a href="/ro" class="dropdown__link"> <i></i> Română </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="justify-content-center" style="margin-top: 40px">
     <div>
         <h1 style="text-align: center" class="fw-semibold"><%= __('title') %></h1>
-        <p style="text-align: justify;margin-left: 10px;margin-right: 10px"><%= __('content-body-top') %></p>
+        <p style="text-align: center;margin-left: 10px;margin-right: 10px"><%= __('content-body-top') %></p>
     </div>
 </div>
 
 <!--Error-->
-<div class='content' id="error-message" style="display: none">
+<div class='content' id="error-message" style="display: none;margin-top: 10px">
     <section>
         <div class="container error-container">
             <div class="" style="width: 60%">
@@ -232,7 +261,7 @@
                 </svg>
             </div>
             <div class="text" style="margin-top: 20px">
-                <span><%= __('title-choose-file') %></span>
+                <span style="text-align: center"><%= __('title-choose-file') %></span>
                 <input id="file" type="file" name="image" accept="image/*" required multiple>
             </div>
         </label>
@@ -240,7 +269,7 @@
 </div>
 
 <!--Result-->
-<div style="display: flex;justify-content: center;align-items: center">
+<div style="display: flex;justify-content: center;align-items: center;margin-bottom: 30px">
     <div id="result-container-1">
         <div id="result-container"></div>
         <div id="load" class="loader"></div>
@@ -250,51 +279,51 @@
 
 
 <!--Content-->
-<div class="container-content mt-5 w-75 d-block" style="margin: 0 auto">
-    <span class="fw-semibold fs-5"><%= __('title-welcome') %></span>
-    <span><%= __('content-welcome') %></span>
+<div class="container-content" style="margin: 0 auto; width: 80%;">
+    <span class="fw-semibold fs-5" style="font-size: 20px; font-weight: 600"><%= __('title-welcome') %></span>
+    <span style="line-height: 25px"><%= __('content-welcome') %></span>
 
-    <div class="mt-4">
-        <h5 class="fw-semibold"><%= __('content-body-title1') %></h5>
+    <div class="mt-4" style="margin-top: 20px">
+        <p class="fw-semibold fs-5" style="font-size: 20px; font-weight: 600"><%= __('content-body-title1') %></p>
         <ul>
-            <li><%= __('content-description1') %></li>
+            <li style="line-height: 25px"><%= __('content-description1') %></li>
         </ul>
     </div>
 
-    <div class="mt-3">
-        <h5 class="fw-semibold"><%= __('content-body-title2') %></h5>
+    <div class="" style="margin-top: 10px">
+        <p class="fw-semibold fs-5" style="font-size: 20px; font-weight: 600"><%= __('content-body-title2') %></p>
         <ul>
-            <li><%= __('content-description2') %></li>
+            <li style="line-height: 25px"><%= __('content-description2') %></li>
         </ul>
     </div>
 
-    <div class="mt-3">
-        <h5 class="fw-semibold"><%= __('content-body-title3') %></h5>
+    <div class="" style="margin-top: 10px">
+        <p class="fw-semibold fs-5" style="font-size: 20px; font-weight: 600"><%= __('content-body-title3') %></p>
         <ul>
-            <li><%= __('content-description3') %></li>
+            <li style="line-height: 25px"><%= __('content-description3') %></li>
         </ul>
     </div>
 
-    <div class="mt-3">
-        <h5 class="fw-semibold"><%= __('content-body-title4') %></h5>
+    <div class="" style="margin-top: 10px">
+        <p class="fw-semibold fs-5" style="font-size: 20px; font-weight: 600"><%= __('content-body-title4') %></p>
         <ul>
-            <li><%= __('content-description4') %></li>
+            <li style="line-height: 25px"><%= __('content-description4') %></li>
         </ul>
     </div>
 
-    <div class="mt-3 mb-3">
-        <h5 class="fw-semibold"><%= __('content-body-title5') %></h5>
+    <div class=" mb-3" style="margin-top: 10px; margin-bottom: 10px">
+        <p class="fw-semibold fs-5" style="font-size: 20px; font-weight: 600"><%= __('content-body-title5') %></p>
         <ul>
-            <li><%= __('content-description5') %></li>
-            <li style="text-align: justify"><%= __('content-description5.2') %></li>
+            <li style="line-height: 25px"><%= __('content-description5') %></li>
+            <li style="text-align: justify;line-height: 25px"><%= __('content-description5.2') %></li>
         </ul>
     </div>
 
 </div>
 
 <!--FAQs-->
-<div class="container-faq w-75 d-block m-auto mb-5">
-    <h5 class="fw-semibold" style="text-align: justify"><%= __('title-welcome-faqs') %></h5>
+<div class="container-faq w-75 d-block m-auto mb-5" style="width: 80%; margin: 0 auto">
+    <p style="text-align: justify; font-size: 20px; font-weight: 600;line-height: 30px"><%= __('title-welcome-faqs') %></p>
 
     <!-- FAQs 1  -->
     <div itemscope itemtype="https://schema.org/FAQPage" class="mlr">
@@ -305,7 +334,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs1') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs1') %></p>
                     </li>
                 </ul>
             </div>
@@ -321,22 +350,22 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs2.1') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs2.1') %></p>
                     </li>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs2.2') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs2.2') %></p>
                     </li>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs2.3') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs2.3') %></p>
                     </li>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs2.4') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs2.4') %></p>
                     </li>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs2.5') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs2.5') %></p>
                     </li>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs2.6') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs2.6') %></p>
                     </li>
                 </ul>
             </div>
@@ -353,7 +382,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs3') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs3') %></p>
                     </li>
                 </ul>
             </div>
@@ -368,7 +397,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs4') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs4') %></p>
                     </li>
                 </ul>
             </div>
@@ -383,7 +412,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs5') %>></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs5') %>></p>
                     </li>
                 </ul>
             </div>
@@ -398,7 +427,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs6') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs6') %></p>
                     </li>
                 </ul>
             </div>
@@ -413,7 +442,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs7') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs7') %></p>
                     </li>
                 </ul>
             </div>
@@ -428,7 +457,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs8') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs8') %></p>
                     </li>
                 </ul>
             </div>
@@ -443,7 +472,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs9') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs9') %></p>
                     </li>
                 </ul>
             </div>
@@ -458,7 +487,7 @@
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
                 <ul>
                     <li>
-                        <p itemprop="description"><%= __('text-faqs10') %></p>
+                        <p style="line-height: 25px" itemprop="description"><%= __('text-faqs10') %></p>
                     </li>
                 </ul>
             </div>
@@ -469,7 +498,7 @@
 
 
 <!--Footer-->
-<footer>
+<footer style="margin-top: 20px">
     <div class="footer-content">
         <p>Designed by <a href="/">NTC</a></p>
         <p>&copy; 2024 - All rights reserved</p>

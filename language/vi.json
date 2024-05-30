@@ -50,5 +50,5 @@
   "name-faqs10": "Làm thế nào để đảm bảo rằng ảnh của tôi vẫn đảm bảo chất lượng sau khi được nén bằng CompressImage?",
   "text-faqs10": "Để đảm bảo rằng ảnh của bạn vẫn giữ chất lượng sau khi được nén bằng CompressImage, bạn cần kiểm tra kết quả nén và điều chỉnh cài đặt nén nếu cần thiết. Bạn cũng có thể so sánh trực quan giữa ảnh gốc và ảnh đã nén để đảm bảo rằng không có sự mất mát đáng kể về chất lượng.",
   "mes_error_1": "Ôi không!",
-  "mes_error_2": "Dung lượng tệp vượt quá giới hạn 3MB và tối đa 1 bức ảnh"
+  "mes_error_2": "Dung lượng tệp vượt quá giới hạn 1MB và tối đa 1 bức ảnh"
 }

@@ -6,8 +6,7 @@ document.getElementById('upload').addEventListener('change', async function (eve
     const loading = document.getElementById("load");
     loading.style.display = "block";
     resultContainer.style.opacity = 0.5
-    console.log(files.length)
-    const maxFileSize = 3 * 1024 * 1024; // 3MB
+    const maxFileSize = 1024 * 1024; // 3MB
     const errorMessage = document.getElementById('error-message');
 
     errorMessage.style.display = "none";
@@ -50,14 +49,13 @@ document.getElementById('upload').addEventListener('change', async function (eve
                 body: formData
             });
             const data = await response.json();
-            console.log(data);
             const downloadLinks = data.compressedImages.map(image => `
                  <div style="" class="custom-details">
-                     <div class="d-flex flex-wrap">
+                     <div class="" style="display: flex; flex-wrap: wrap">
                          <p class="customP"><b>Name:</b> ${image.name}</p>
                          <p class="customP" style="color: red"><b style="color: black">Size(Befor): </b>${formatFileSize(image.originalSize)}</p>
                      </div>
-                     <div class="d-flex flex-wrap">
+                     <div class=""style="display: flex;flex-wrap: wrap">
                          <p class="customP" style="color: #7eb631"><b style="color: black">Size(After): </b>${formatFileSize(image.compSize)}</p>
                          <a class="a-download" href="data:image/${image.format};base64,${image.buffer}" download="compress_${image.name}">Download</a>
                      </div>
@@ -107,3 +105,18 @@ for (i = 0; i < acc.length; i++) {
         }
     });
 }
+/*=============== SHOW MENU ===============*/
+const showMenu = (toggleId, navId) => {
+    const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId)
+
+    toggle.addEventListener('click', () => {
+        // Add show-menu class to nav menu
+        nav.classList.toggle('show-menu')
+
+        // Add show-icon to show and hide the menu icon
+        toggle.classList.toggle('show-icon')
+    })
+}
+
+showMenu('nav-toggle', 'nav-menu')

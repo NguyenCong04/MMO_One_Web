@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+    <url>
+        <loc>https://compressimage.me/</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/en</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/vi</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/id</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/my</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ja</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ko</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/pt</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/iw</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/es</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/fr</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ro</loc>
+        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+
+
+</urlset>

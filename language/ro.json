@@ -50,5 +50,5 @@
   "name-faqs10": "Cum pot să mă asigur că imaginile mele își păstrează calitatea după ce sunt comprimate cu CompressImage?",
   "text-faqs10": "Pentru a te asigura că imaginile tale își păstrează calitatea după ce sunt comprimate cu CompressImage, trebuie să verifici rezultatele compresiei și să ajustezi setările de compresie dacă este necesar. Poți de asemenea să compari vizual imaginea originală cu imaginea comprimată pentru a te asigura că nu există pierderi semnificative de calitate.",
   "mes_error_1": "O snap!",
-  "mes_error_2": "Dimensiunea fișierului depășește limita de 3MB și maximum 1 fotografii"
+  "mes_error_2": "Dimensiunea fișierului depășește limita de 1MB și maximum 1 fotografii"
 }

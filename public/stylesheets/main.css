@@ -5,42 +5,27 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/*Nav*/
-/*=============== VARIABLES CSS ===============*/
 :root {
     --header-height: 3.5rem;
 
-    /*========== Colors ==========*/
-    /*Color mode HSL(hue, saturation, lightness)*/
     --black-color: hsl(220, 24%, 12%);
     --black-color-light: hsl(220, 24%, 15%);
     --black-color-lighten: hsl(220, 20%, 18%);
     --white-color: #fff;
     --body-color: hsl(220, 100%, 97%);
-
-    /*========== Font and typography ==========*/
-    /*.5rem = 8px | 1rem = 16px ...*/
     --body-font: "Montserrat", sans-serif;
     --normal-font-size: .938rem;
-
-    /*========== Font weight ==========*/
     --font-regular: 400;
     --font-semi-bold: 600;
-
-    /*========== z index ==========*/
     --z-tooltip: 10;
     --z-fixed: 100;
 }
 
-/*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
     :root {
         --normal-font-size: 1rem;
     }
 }
-
-/*=============== BASE ===============*/
 * {
     box-sizing: border-box;
     padding: 0;
@@ -55,22 +40,15 @@ body {
 
 ul {
     list-style: none;
-    /* Color highlighting when pressed on mobile devices */
-    /*-webkit-tap-highlight-color: transparent;*/
     padding-left: 0;
 }
-
 a {
     text-decoration: none;
 }
-
-/*=============== REUSABLE CSS CLASSES ===============*/
 .container-header-nav {
     max-width: 1120px;
     margin-inline: 1.5rem;
 }
-
-/*=============== HEADER ===============*/
 .header {
     top: 0;
     left: 0;
@@ -79,8 +57,6 @@ a {
     box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
     z-index: var(--z-fixed);
 }
-
-/*=============== NAV ===============*/
 .nav-header {
     height: var(--header-height);
 }
@@ -103,8 +79,6 @@ a {
     align-items: center;
     column-gap: .25rem;
     font-weight: var(--font-semi-bold);
-    /* Color highlighting when pressed on mobile devices */
-    /*-webkit-tap-highlight-color: transparent;*/
 }
 
 .nav__logo i {
@@ -134,7 +108,6 @@ a {
     opacity: 0;
 }
 
-/* Navigation for mobile devices */
 @media screen and (max-width: 1118px) {
     .nav__menu {
         position: absolute;
@@ -173,14 +146,12 @@ a {
     background-color: var(--black-color-light);
 }
 
-/* Show menu */
 .show-menu {
     opacity: 1;
     top: 3.5rem;
     pointer-events: initial;
 }
 
-/* Show icon */
 .show-icon .nav__burger {
     opacity: 0;
     transform: rotate(90deg);
@@ -191,7 +162,6 @@ a {
     transform: rotate(90deg);
 }
 
-/*=============== DROPDOWN ===============*/
 .dropdown__item {
     cursor: pointer;
 }
@@ -201,7 +171,6 @@ a {
     font-weight: initial;
     transition: transform .4s;
 }
-
 .dropdown__link,
 .dropdown__sublink {
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
@@ -232,20 +201,16 @@ a {
     transition: max-height .4s ease-out;
 }
 
-/* Show dropdown menu & submenu */
 .dropdown__item:hover .dropdown__menu,
 .dropdown__subitem:hover > .dropdown__submenu {
     max-height: 1000px;
     transition: max-height .4s ease-in;
 }
 
-/* Rotate dropdown icon */
 .dropdown__item:hover .dropdown__arrow {
     transform: rotate(180deg);
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
 @media screen and (max-width: 340px) {
     .container-header-nav {
         margin-inline: 1rem;
@@ -256,7 +221,6 @@ a {
     }
 }
 
-/* For large devices */
 @media screen and (min-width: 1118px) {
     .container-header-nav {
         margin-inline: auto;
@@ -320,8 +284,6 @@ a {
         left: 100%;
         top: .5rem;
     }
-
-    /* Show dropdown menu */
     .dropdown__item:hover .dropdown__menu {
         opacity: 1;
         top: 5.5rem;
@@ -329,7 +291,6 @@ a {
         transition: top .3s;
     }
 
-    /* Show dropdown submenu */
     .dropdown__subitem:hover > .dropdown__submenu {
         opacity: 1;
         top: 0;
@@ -339,7 +300,6 @@ a {
 }
 
 
-/*Nav end*/
 
 
 #upload {
@@ -452,6 +412,41 @@ body {
     gap: 20px;
 }
 
+
+.container-content {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+.fs-5 {
+    font-size: 20px;
+}
+
+.line-height {
+    line-height: 25px;
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
 footer {
     background-color: #333;
     color: #fff;
@@ -546,10 +541,8 @@ footer {
 
 .loader {
     position: absolute;
-    /*top: calc(50% - 1.25em);*/
     left: calc(50% - 1.25em);
 }
-
 .accordion {
     background-color: #eee;
     color: #444;
@@ -565,24 +558,19 @@ footer {
     position: relative; /* Đặt vị trí tương đối để căn chỉnh biểu tượng */
     padding: 18px 55px 18px 18px;
 }
-
 .active, .accordion:hover {
     background-color: #ccc;
 }
-
 .panel {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-
 .panel p {
     margin-block-start: 1.3em;
     text-align: justify;
 }
-
-/* CSS cho biểu tượng */
 .accordion i {
     position: absolute;
     top: 50%;
@@ -590,20 +578,13 @@ footer {
     transform: translateY(-50%);
     transition: transform 0.4s; /* Hiệu ứng khi xoay biểu tượng */
 }
-
-/* Xoay biểu tượng khi accordion mở rộng */
 .accordion.active i {
     transform: translateY(-50%) rotate(-180deg);
 }
-
 .mlr {
     margin-left: 10px;
     margin-right: 10px;
 }
-
-
-/*Error*/
-
 .content {
     padding: 0;
 }

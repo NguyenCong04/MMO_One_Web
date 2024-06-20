@@ -168,9 +168,7 @@ app.get('/', function (req, res) {
     i18n.setLocale(req, 'en')
     res.render('index', {lang: lang})
 })
-
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
-// ví dụ : https://dotsave.app/en
 app.get('/:lang', function (req, res, next) {
     // lấy ra địa chỉ truy vấn
     console.log("Not index")
@@ -195,6 +193,57 @@ app.get('/:lang', function (req, res, next) {
     i18n.setLocale(req, lang)
     res.render('index', {lang: lang})
 })
+
+
+// // Config language_dict window start
+// const language_dict = {};
+// glob.sync('./language/*.json').forEach(function (file) {
+//     let dash = file.split("\\");
+//     if (dash.length == 2) {
+//         let dot = dash[1].split(".");
+//         if (dot.length == 2) {
+//             let lang = dot[0];
+//             fs.readFile(file, function (err, data) {
+//                 language_dict[lang] = JSON.parse(data.toString());
+//             });
+//         }
+//     } else {
+//         console.log("lkkkk")
+//     }
+// });
+// app.get('/', function (req, res) {
+//     let lang = 'en';
+//     console.log(lang);
+//     i18n.setLocale(req, 'en')
+//     res.render('index', {lang: lang})
+// })
+// app.get('/:lang', function (req, res, next) {
+//     // lấy ra địa chỉ truy vấn
+//     console.log("Not index")
+//     const q = req.url;
+//     // tách ra language code từ địa chỉ truy vấn
+//     let dash = q.split("/");
+//     let lang = undefined
+//     if (dash.length >= 2) {
+//         let code = dash[1];
+//         console.log(language_dict)
+//         console.log('code = ' + code)
+//         console.log(language_dict[code])
+//         if (code !== '' && language_dict.hasOwnProperty(code)) {
+//             lang = code;
+//             console.log('AAAA' + lang)
+//         } else {
+//             next(createError(404))
+//             return
+//         }
+//     }
+//     if (lang == undefined) lang = 'en'
+//     i18n.setLocale(req, lang)
+//     res.render('index', {lang: lang})
+// })
+// //config window end
+
+
 
 
 // catch 404 and forward to error handler

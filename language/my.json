@@ -51,5 +51,6 @@
 	"text-faqs10": "Untuk memastikan gambar anda masih berkualiti selepas dipampatkan dengan CompressImage, anda perlu menyemak hasil pemampatan dan membuat penyesuaian pada tetapan pemampatan jika diperlukan. Anda juga boleh membandingkan visual antara gambar asal dan gambar yang telah dipampatkan untuk memastikan tidak ada penurunan kualiti yang signifikan.",
 	"twitter_card_sumary": "twitter_card_sumary",
 	"mes_error_1": "Oh snap!",
-	"mes_error_2": "Saiz fail melebihi had 1MB dan Maksimum 1 gambar"
+	"mes_error_2": "Saiz fail melebihi had 1MB dan Maksimum 1 gambar",
+	"lang": "my"
 }

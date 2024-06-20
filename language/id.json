@@ -51,5 +51,6 @@
 	"text-faqs10": "Untuk memastikan bahwa gambar Anda tetap berkualitas setelah dikompresi dengan Kompres Gambar, Anda perlu memeriksa hasil kompresi dan menyesuaikan pengaturan kompresi jika diperlukan. Anda juga dapat membandingkan visual antara gambar asli dan gambar yang sudah dikompresi untuk memastikan tidak ada penurunan kualitas yang signifikan.",
 	"twitter_card_sumary": "twitter_card_sumary",
 	"mes_error_1": "Oh snap!",
-	"mes_error_2": "Ukuran file melebihi batas 1MB dan Maksimum 1 foto"
+	"mes_error_2": "Ukuran file melebihi batas 1MB dan Maksimum 1 foto",
+	"lang": "id"
 }

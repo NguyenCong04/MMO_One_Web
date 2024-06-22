@@ -3,6 +3,7 @@
 <head>
     <title><%= __('title') %></title>
     <meta name="description" content="<%= __('description') %>">
+    <meta name="keywords" content="<%= __('keyword') %>"/>
     <meta itemprop="image" content="">
     <meta name="robots" content="index, follow"/>
     <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
@@ -22,21 +23,21 @@
     <link rel="alternate" hreflang="en" href="https://compressimage.me/en"/>
     <link rel="alternate" hreflang="vi" href="https://compressimage.me/vi"/>
     <link rel="alternate" hreflang="id" href="https://compressimage.me/id"/>
-    <link rel="alternate" hreflang="my" href="https://compressimage.me/my"/>
+    <link rel="alternate" hreflang="ms" href="https://compressimage.me/ms"/>
     <link rel="alternate" hreflang="ja" href="https://compressimage.me/ja"/>
     <link rel="alternate" hreflang="ko" href="https://compressimage.me/ko"/>
     <link rel="alternate" hreflang="pt" href="https://compressimage.me/pt"/>
-    <link rel="alternate" hreflang="iw" href="https://compressimage.me/iw"/>
+    <link rel="alternate" hreflang="hi" href="https://compressimage.me/hi"/>
     <link rel="alternate" hreflang="es" href="https://compressimage.me/es"/>
     <link rel="alternate" hreflang="fr" href="https://compressimage.me/fr"/>
     <link rel="alternate" hreflang="ro" href="https://compressimage.me/ro"/>
     <link rel="sitemap" href="https://compressimage.me/sitemap.xml"/>
+    <link rel="canonical" href="https://compressimage.me/<%= __('lang') %>"/>
 
     <meta name="google-site-verification" content="45tzeD5vb8UThHDKRNQnXDAd-wVFqmAzupDCsS_TFvQ"/>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5430905845990574"
             crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-5430905845990574">
-    <link rel="canonical" href="https://compressimage.me/<%= __('lang') %>"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/main.css'/>
@@ -77,7 +78,7 @@
                             <a href="/id" class="dropdown__link"> <i></i> Bahasa Indonesia </a>
                         </li>
                         <li>
-                            <a href="/my" class="dropdown__link"> <i></i>Bahasa Melayu</a>
+                            <a href="/ms" class="dropdown__link"> <i></i>Bahasa Melayu</a>
                         </li>
                         <li>
                             <a href="/ja" class="dropdown__link"> <i></i> 日本語 </a>
@@ -89,7 +90,7 @@
                             <a href="/pt" class="dropdown__link"> <i></i> Português </a>
                         </li>
                         <li>
-                            <a href="/iw" class="dropdown__link"> <i></i> भारत गणराज्य </a>
+                            <a href="/hi" class="dropdown__link"> <i></i> भारत गणराज्य </a>
                         </li>
                         <li>
                             <a href="/es" class="dropdown__link"> <i></i> Español </a>
@@ -106,269 +107,298 @@
         </div>
     </nav>
 </header>
-<div class="justify-content-center" style="margin-top: 40px">
-    <div>
-        <h1 style="text-align: center" class="fw-semibold"><%= __('title') %></h1>
-        <p style="text-align: center;margin-left: 10px;margin-right: 10px"><%= __('content-body-top') %></p>
-    </div>
-</div>
-<div class='content' id="error-message" style="display: none;margin-top: 10px">
+<main>
     <section>
-        <div class="container error-container">
-            <div style="width: 60%">
+        <div class="justify-content-center" style="margin-top: 40px">
+            <div style="line-height: 1.5;">
+                <h1 style="text-align: center"><%= __('title-body-top') %></h1>
+                <p style="text-align: center;margin-left: 10px;margin-right: 10px"><%= __('content-body-top') %></p>
+            </div>
+        </div>
+        <div class='content' id="error-message" style="display: none;margin-top: 10px">
+            <section>
+                <div class="container error-container">
+                    <div style="width: 60%">
 
-                <div class="col-sm-12">
-                    <div class="alert fade alert-simple alert-danger alert-dismissible text-left  font__size-16 font__weight-light brk-library-rendered rendered show"
-                         role="alert" data-brk-library="component__alert">
-                        <button type="button" class="close font__size-18" data-dismiss="alert">
+                        <div class="col-sm-12">
+                            <div class="alert fade alert-simple alert-danger alert-dismissible text-left  font__size-16 font__weight-light brk-library-rendered rendered show"
+                                 role="alert" data-brk-library="component__alert">
+                                <button type="button" class="close font__size-18" data-dismiss="alert">
 									<span aria-hidden="true">
 										<i class="fa fa-times danger "></i>
 									</span>
-                            <span class="sr-only">Close</span>
-                        </button>
-                        <i class="start-icon far fa-times-circle faa-pulse animated"></i>
-                        <strong class="font__weight-semibold"><%= __('mes_error_1') %></strong><%= __('mes_error_2') %>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <i class="start-icon far fa-times-circle faa-pulse animated"></i>
+                                <strong class="font__weight-semibold"><%= __('mes_error_1') %></strong><%= __('mes_error_2') %>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </section>
+        </div>
+        <div style="display: flex;
+    justify-content: center;">
+            <form id="upload" enctype="multipart/form-data">
+                <label for="file">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
+                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                            <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path fill=""
+                                      d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
+                                      clip-rule="evenodd" fill-rule="evenodd"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="text" style="margin-top: 20px">
+                        <span style="text-align: center"><%= __('title-choose-file') %></span>
+                        <input id="file" type="file" name="image" accept="image/*" required multiple>
+                    </div>
+                </label>
+            </form>
+        </div>
+        <div style="display: flex;justify-content: center;align-items: center;margin-bottom: 30px">
+            <div id="result-container-1">
+                <div id="result-container"></div>
+                <div id="load" class="loader"></div>
+            </div>
+
+        </div>
+    </section>
+    <section class="container-content">
+        <h2 class="fs-5 "><%= __('title-welcome') %></h2>
+        <p>
+            <%= __('content-welcome') %>
+        </p>
+        <ol style="margin-left: 30px">
+            <li> <%= __('content-welcome-chill-1') %></li>
+            <li>
+                <%= __('content-welcome-chill-2') %>
+            </li>
+            <li> <%= __('content-welcome-chill-3') %></li>
+        </ol>
+    </section>
+    <section id="benefits" class="container-content">
+        <h2 class="fs-5 "> <%= __('content-body-title1') %></h2>
+        <p>
+            <%= __('content-description1') %>
+        </p>
+        <ul style="margin-left: 20px">
+            <li>
+                <strong> <%= __('content-description1-strong1') %></strong>
+                <%= __('content-description1-chill-1') %>
+            </li>
+            <li>
+                <strong> <%= __('content-description1-strong2') %></strong>
+                <%= __('content-description1-chill-2') %>
+            </li>
+            <li>
+                <strong> <%= __('content-description1-strong3') %></strong>
+                <%= __('content-description1-chill-3') %>
+            </li>
+            <li>
+                <strong> <%= __('content-description1-strong4') %></strong>
+                <%= __('content-description1-chill-4') %>
+            </li>
+        </ul>
+    </section>
+    <section class="mt-10 container-content" id="supported-formats">
+        <h2 class="fs-5 "> <%= __('content-body-title2') %></h2>
+        <p>
+            <%= __('content-description2') %>
+        </p>
+        <ul style="margin-left: 20px">
+            <li>
+                <strong><%= __('content-description2-strong1') %></strong>
+                <%= __('content-description2-chill-1') %>
+            </li>
+            <li>
+                <strong><%= __('content-description2-strong2') %></strong>
+                <%= __('content-description2-chill-2') %>
+            </li>
+            <li>
+                <strong><%= __('content-description2-strong3') %></strong>
+                <%= __('content-description2-chill-3') %>
+            </li>
+        </ul>
+    </section>
+    <section id="optimization-tips" class="mt-10 container-content">
+        <h2 class="fs-5 "><%= __('content-body-title3') %></h2>
+        <p>
+            <%= __('content-description3') %>
+        </p>
+        <ul style="margin-left: 20px">
+            <li>
+                <strong><%= __('content-description3-strong1') %></strong>
+                <%= __('content-description3-chill-1') %>
+
+            </li>
+            <li>
+                <strong><%= __('content-description3-strong2') %></strong>
+                <%= __('content-description3-chill-2') %>
+            </li>
+            <li>
+                <strong><%= __('content-description3-strong3') %></strong>
+                <%= __('content-description3-chill-3') %>
+            </li>
+            <li>
+                <strong><%= __('content-description3-strong4') %></strong>
+                <%= __('content-description3-chill-4') %>
+            </li>
+        </ul>
+    </section>
+    <section class="container-content">
+        <h2 class="text-justify fs-5 "><%= __('title-welcome-faqs') %></h2>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr  ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs1') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs1') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs2') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs2.1') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr  ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs3') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs3') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs4') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs4') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs5') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs5') %>></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs6') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs6') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs7') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs7') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs8') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs8') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs9') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs9') %></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr ">
+            <div class="center-box-faq">
+                <button itemprop="name" class="accordion"><%= __('name-faqs10') %><i
+                            class="fas fa-chevron-down"></i>
+                </button>
+                <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
+                    <ul>
+                        <li>
+                            <p class="line-height" itemprop="text"><%= __('text-faqs10') %></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
-</div>
-<div style="display: flex;
-    justify-content: center;">
-    <form id="upload" enctype="multipart/form-data">
-        <label for="file">
-            <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
-                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
-                    <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path fill=""
-                              d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
-                              clip-rule="evenodd" fill-rule="evenodd"></path>
-                    </g>
-                </svg>
-            </div>
-            <div class="text" style="margin-top: 20px">
-                <span style="text-align: center"><%= __('title-choose-file') %></span>
-                <input id="file" type="file" name="image" accept="image/*" required multiple>
-            </div>
-        </label>
-    </form>
-</div>
-<div style="display: flex;justify-content: center;align-items: center;margin-bottom: 30px">
-    <div id="result-container-1">
-        <div id="result-container"></div>
-        <div id="load" class="loader"></div>
-    </div>
-
-</div>
-
-<div class="container-content">
-    <span class="fw-semibold fs-5 "><%= __('title-welcome') %></span>
-    <span class="line-height"><%= __('content-welcome') %></span>
-</div>
-
-<div class="mt-4 container-content">
-    <p class="fw-semibold fs-5 "><%= __('content-body-title1') %></p>
-    <ul>
-        <li class="line-height "><%= __('content-description1') %></li>
-    </ul>
-</div>
-
-<div class="mt-10 container-content">
-    <p class="fw-semibold fs-5"><%= __('content-body-title2') %></p>
-    <ul>
-        <li class="line-height"><%= __('content-description2') %></li>
-    </ul>
-</div>
-
-<div class="mt-10 container-content">
-    <p class="fw-semibold fs-5"><%= __('content-body-title3') %></p>
-    <ul>
-        <li class="line-height"><%= __('content-description3') %></li>
-    </ul>
-</div>
-
-<div class="mt-10 container-content">
-    <p class="fw-semibold fs-5"><%= __('content-body-title4') %></p>
-    <ul>
-        <li class="line-height"><%= __('content-description4') %></li>
-    </ul>
-</div>
-
-<div class=" mb-10 mt-10 container-content">
-    <p class="fw-semibold fs-5"><%= __('content-body-title5') %></p>
-    <ul>
-        <li class="line-height"><%= __('content-description5') %></li>
-        <li class="line-height text-justify"><%= __('content-description5.2') %></li>
-    </ul>
-</div>
-
-<p class="text-justify fs-5 fw-semibold container-content" style="line-height: 30px"><%= __('title-welcome-faqs') %></p>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr  ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs1') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs1') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs2') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs2.1') %></p>
-                </li>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs2.2') %></p>
-                </li>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs2.3') %></p>
-                </li>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs2.4') %></p>
-                </li>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs2.5') %></p>
-                </li>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs2.6') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr  ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs3') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs3') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs4') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs4') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs5') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs5') %>></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs6') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs6') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs7') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs7') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs8') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs8') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr   ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs9') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs9') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mlr ">
-    <div class="center-box-faq">
-        <button itemprop="name" class="accordion"><%= __('name-faqs10') %><i
-                    class="fas fa-chevron-down"></i>
-        </button>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="panel">
-            <ul>
-                <li>
-                    <p class="line-height" itemprop="text"><%= __('text-faqs10') %></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+</main>
 <footer style="margin-top: 20px">
     <div class="footer-content">
         <p>Designed by <a href="/">NTC</a></p>
         <p>&copy; 2024 - All rights reserved</p>
     </div>
 </footer>
-
-
 <script src="/javascripts/main.js" defer></script>
 <script type="application/ld+json">
     {

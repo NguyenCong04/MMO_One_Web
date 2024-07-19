@@ -123,6 +123,10 @@ i18n.configure({
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var pngConvertRouter = require('./routes/convertPNG');
+var jpgConvertRouter = require('./routes/convertJPG');
+var jpegConvertRouter = require('./routes/convertJPEG');
+var icoConvertRouter = require('./routes/convertICO');
 
 
 var app = express();
@@ -146,8 +150,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/pngConvert', pngConvertRouter);
+app.use('/jpgConvert', jpgConvertRouter);
+app.use('/jpegConvert', jpegConvertRouter);
+app.use('/icoConvert', icoConvertRouter);
 
-//Đọc các file json có trong folder language
+// //Đọc các file json có trong folder language
 var language_dict = {};
 glob.sync('../language/*.json').forEach(function (file) {
     let dash = file.split("/");
@@ -161,6 +169,23 @@ glob.sync('../language/*.json').forEach(function (file) {
         }
     }
 });
+
+//Config window
+// glob.sync('./language/*.json').forEach(function (file) {
+//     let dash = file.split("\\");
+//     if (dash.length == 2) {
+//         let dot = dash[1].split(".");
+//         if (dot.length == 2) {
+//             let lang = dot[0];
+//             fs.readFile(file, function (err, data) {
+//                 language_dict[lang] = JSON.parse(data.toString());
+//             });
+//         }
+//     } else {
+//         console.log("lkkkk")
+//     }
+// });
+
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ mắc định sẽ hiển thị tiếng anh
 app.get('/', function (req, res) {
     let lang = 'en';
@@ -168,6 +193,31 @@ app.get('/', function (req, res) {
     i18n.setLocale(req, 'en')
     res.render('index', {lang: lang})
 })
+app.get('/png', function (req, res) {
+    let lang = 'en';
+    console.log(lang);
+    i18n.setLocale(req, 'en')
+    res.render('convertPNG', {lang: lang})
+})
+app.get('/jpg', function (req, res) {
+    let lang = 'en';
+    console.log(lang);
+    i18n.setLocale(req, 'en')
+    res.render('convertJPG', {lang: lang})
+})
+app.get('/jpeg', function (req, res) {
+    let lang = 'en';
+    console.log(lang);
+    i18n.setLocale(req, 'en')
+    res.render('convertJPEG', {lang: lang})
+})
+app.get('/ico', function (req, res) {
+    let lang = 'en';
+    console.log(lang);
+    i18n.setLocale(req, 'en')
+    res.render('convertICO', {lang: lang})
+})
+
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
 app.get('/:lang', function (req, res, next) {
     // lấy ra địa chỉ truy vấn
@@ -193,9 +243,105 @@ app.get('/:lang', function (req, res, next) {
     i18n.setLocale(req, lang)
     res.render('index', {lang: lang})
 })
+app.get('/:lang/png', function (req, res, next) {
+    // lấy ra địa chỉ truy vấn
+    console.log("Not index")
+    const q = req.url;
+    // tách ra language code từ địa chỉ truy vấn
+    let dash = q.split("/");
+    let lang = undefined
+    if (dash.length >= 2) {
+        let code = dash[1];
+        console.log(language_dict)
+        console.log('code = ' + code)
+        console.log(language_dict[code])
+        if (code !== '' && language_dict.hasOwnProperty(code)) {
+            lang = code;
+            console.log('AAAA' + lang)
+        } else {
+            next(createError(404))
+            return
+        }
+    }
+    if (lang == undefined) lang = 'en'
+    i18n.setLocale(req, lang)
+    res.render('convertPNG', {lang: lang})
+})
+app.get('/:lang/jpg', function (req, res, next) {
+    // lấy ra địa chỉ truy vấn
+    console.log("Not index")
+    const q = req.url;
+    // tách ra language code từ địa chỉ truy vấn
+    let dash = q.split("/");
+    let lang = undefined
+    if (dash.length >= 2) {
+        let code = dash[1];
+        console.log(language_dict)
+        console.log('code = ' + code)
+        console.log(language_dict[code])
+        if (code !== '' && language_dict.hasOwnProperty(code)) {
+            lang = code;
+            console.log('AAAA' + lang)
+        } else {
+            next(createError(404))
+            return
+        }
+    }
+    if (lang == undefined) lang = 'en'
+    i18n.setLocale(req, lang)
+    res.render('convertJPG', {lang: lang})
+})
+app.get('/:lang/jpeg', function (req, res, next) {
+    // lấy ra địa chỉ truy vấn
+    console.log("Not index")
+    const q = req.url;
+    // tách ra language code từ địa chỉ truy vấn
+    let dash = q.split("/");
+    let lang = undefined
+    if (dash.length >= 2) {
+        let code = dash[1];
+        console.log(language_dict)
+        console.log('code = ' + code)
+        console.log(language_dict[code])
+        if (code !== '' && language_dict.hasOwnProperty(code)) {
+            lang = code;
+            console.log('AAAA' + lang)
+        } else {
+            next(createError(404))
+            return
+        }
+    }
+    if (lang == undefined) lang = 'en'
+    i18n.setLocale(req, lang)
+    res.render('convertJPEG', {lang: lang})
+})
+app.get('/:lang/ico', function (req, res, next) {
+    // lấy ra địa chỉ truy vấn
+    console.log("Not index")
+    const q = req.url;
+    // tách ra language code từ địa chỉ truy vấn
+    let dash = q.split("/");
+    let lang = undefined
+    if (dash.length >= 2) {
+        let code = dash[1];
+        console.log(language_dict)
+        console.log('code = ' + code)
+        console.log(language_dict[code])
+        if (code !== '' && language_dict.hasOwnProperty(code)) {
+            lang = code;
+            console.log('AAAA' + lang)
+        } else {
+            next(createError(404))
+            return
+        }
+    }
+    if (lang == undefined) lang = 'en'
+    i18n.setLocale(req, lang)
+    res.render('convertICO', {lang: lang})
+})
 
 
-// // Config language_dict window start
+// Config language_dict window start
 // const language_dict = {};
 // glob.sync('./language/*.json').forEach(function (file) {
 //     let dash = file.split("\\");
@@ -211,36 +357,7 @@ app.get('/:lang', function (req, res, next) {
 //         console.log("lkkkk")
 //     }
 // });
-// app.get('/', function (req, res) {
-//     let lang = 'en';
-//     console.log(lang);
-//     i18n.setLocale(req, 'en')
-//     res.render('index', {lang: lang})
-// })
-// app.get('/:lang', function (req, res, next) {
-//     // lấy ra địa chỉ truy vấn
-//     console.log("Not index")
-//     const q = req.url;
-//     // tách ra language code từ địa chỉ truy vấn
-//     let dash = q.split("/");
-//     let lang = undefined
-//     if (dash.length >= 2) {
-//         let code = dash[1];
-//         console.log(language_dict)
-//         console.log('code = ' + code)
-//         console.log(language_dict[code])
-//         if (code !== '' && language_dict.hasOwnProperty(code)) {
-//             lang = code;
-//             console.log('AAAA' + lang)
-//         } else {
-//             next(createError(404))
-//             return
-//         }
-//     }
-//     if (lang == undefined) lang = 'en'
-//     i18n.setLocale(req, lang)
-//     res.render('index', {lang: lang})
-// })
+
 // //config window end
 
 

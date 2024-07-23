@@ -9,63 +9,333 @@
 
     <url>
         <loc>https://compressimage.me/</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://compressimage.me/en</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
-        <priority>0.80</priority>
-    </url>
-    <url>
         <loc>https://compressimage.me/vi</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/id</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/ms</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/ja</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/ko</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/pt</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/hi</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/es</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/fr</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://compressimage.me/ro</loc>
-        <lastmod>2024-05-30T06:18:57+00:00</lastmod>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
         <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/vi/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/id/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ms/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ja/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ko/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/pt/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/hi/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/es/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/fr/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ro/crop</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/vi/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/id/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ms/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ja/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ko/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/pt/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/hi/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/es/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/fr/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ro/png</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/vi/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/id/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ms/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ja/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ko/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/pt/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/hi/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/es/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/fr/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ro/jpg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/vi/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/id/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ms/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ja/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ko/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/pt/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/hi/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/es/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/fr/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ro/jpeg</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/vi/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/id/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ms/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ja/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ko/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/pt/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/hi/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/es/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/fr/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://compressimage.me/ro/ico</loc>
+        <lastmod>2024-07-23T05:59:34+00:00</lastmod>
+        <priority>0.64</priority>
     </url>
 
 

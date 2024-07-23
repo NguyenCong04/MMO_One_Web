@@ -127,6 +127,7 @@ var pngConvertRouter = require('./routes/convertPNG');
 var jpgConvertRouter = require('./routes/convertJPG');
 var jpegConvertRouter = require('./routes/convertJPEG');
 var icoConvertRouter = require('./routes/convertICO');
+var cropImageRouter = require('./routes/cropImage');
 
 
 var app = express();
@@ -154,6 +155,7 @@ app.use('/pngConvert', pngConvertRouter);
 app.use('/jpgConvert', jpgConvertRouter);
 app.use('/jpegConvert', jpegConvertRouter);
 app.use('/icoConvert', icoConvertRouter);
+app.use('/cropImage', cropImageRouter);
 
 // //Đọc các file json có trong folder language
 var language_dict = {};
@@ -216,6 +218,12 @@ app.get('/ico', function (req, res) {
     console.log(lang);
     i18n.setLocale(req, 'en')
     res.render('convertICO', {lang: lang})
+})
+app.get('/crop', function (req, res) {
+    let lang = 'en';
+    console.log(lang);
+    i18n.setLocale(req, 'en')
+    res.render('cropImage', {lang: lang})
 })
 
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
@@ -338,6 +346,30 @@ app.get('/:lang/ico', function (req, res, next) {
     if (lang == undefined) lang = 'en'
     i18n.setLocale(req, lang)
     res.render('convertICO', {lang: lang})
+})
+app.get('/:lang/crop', function (req, res, next) {
+    // lấy ra địa chỉ truy vấn
+    console.log("Not index")
+    const q = req.url;
+    // tách ra language code từ địa chỉ truy vấn
+    let dash = q.split("/");
+    let lang = undefined
+    if (dash.length >= 2) {
+        let code = dash[1];
+        console.log(language_dict)
+        console.log('code = ' + code)
+        console.log(language_dict[code])
+        if (code !== '' && language_dict.hasOwnProperty(code)) {
+            lang = code;
+            console.log('AAAA' + lang)
+        } else {
+            next(createError(404))
+            return
+        }
+    }
+    if (lang == undefined) lang = 'en'
+    i18n.setLocale(req, lang)
+    res.render('cropImage', {lang: lang})
 })
 
 
